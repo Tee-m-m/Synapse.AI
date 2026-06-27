@@ -39,7 +39,7 @@ while True:
     #Sending the entire conversation
     try:
         response = ollama.chat(
-            model = "llama3:latest",
+            model = "llama3.2:1b",
             messages=messages
         )
 

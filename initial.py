@@ -37,22 +37,25 @@ while True:
     
 
     #Sending the entire conversation
-    response = ollama.chat(
-        model = "llama3:latest",
-        messages=messages
-    )
-    print(response)
+    try:
+        response = ollama.chat(
+            model = "llama3:latest",
+            messages=messages
+        )
 
-    #Get reply
-    bot_reply = response.message.content
+        #Get reply
+        bot_reply = response.message.content
 
-    #Store bot reply
-    messages.append(
-        {
-            "role" : "assistant",
-            "content" : bot_reply
-        }
-    )
+        #Store bot reply
+        messages.append(
+            {
+                "role" : "assistant",
+                "content" : bot_reply
+            }
+        )
 
-    print("\nSynapse.AI: ", bot_reply)
-    print()
+        print("\nSynapse.AI: ", bot_reply)
+        print()
+
+    except Exception as e:
+        print("Error:", e)

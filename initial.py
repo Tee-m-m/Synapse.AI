@@ -38,13 +38,21 @@ while True:
 
     #Sending the entire conversation
     try:
-        response = ollama.chat(
-            model = "llama3.2:1b",
-            messages=messages
-        )
+        print("\nSnappie: ", end='', flush=True)
 
-        #Get reply
-        bot_reply = response.message.content
+        bot_reply = ""
+
+        for chunk in ollama.chat(
+            model="llama3.2:1b",
+            messages=messages,
+            stream=True
+        ):
+            word = chunk.messsage.content
+            print(word, end='', flush=True)
+            bot_reply+=word
+            
+            print("\n")
+
 
         #Store bot reply
         messages.append(
@@ -53,9 +61,6 @@ while True:
                 "content" : bot_reply
             }
         )
-
-        print("\nSynapse.AI: ", bot_reply)
-        print()
 
     except Exception as e:
         print("Error:", e)

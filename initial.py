@@ -41,6 +41,7 @@ while True:
         model = "llama3:latest",
         messages=messages
     )
+    print(response)
 
     #Get reply
     bot_reply = response.message.content

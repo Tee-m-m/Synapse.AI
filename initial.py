@@ -47,11 +47,11 @@ while True:
             messages=messages,
             stream=True
         ):
-            word = chunk.messsage.content
+            word = chunk['message']['content']
             print(word, end='', flush=True)
             bot_reply+=word
             
-            print("\n")
+        print("\n")
 
 
         #Store bot reply

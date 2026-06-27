@@ -37,12 +37,12 @@ messages.append(
 
 #Sending the entire conversation
 response = ollama.chat(
-    model = "llama3",
+    model = "llama3:latest",
     messages=messages
 )
 
 #Get reply
-bot_reply = response["message"]["content"]
+bot_reply = response.message.content
 
 #Store bot reply
 messages.append(

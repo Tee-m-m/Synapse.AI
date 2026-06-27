@@ -13,12 +13,12 @@ messages = [
         - General Questions
         - Productivity
         
-        Be friendly and conversationa.
+        Be friendly and conversational.
         """
     }
 ]
 
-print("Synapse.AI")
+print("\n-----Synapse.AI-----")
 print("\nType 'bye' to quit!")
 
 while True:
